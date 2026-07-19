@@ -441,6 +441,8 @@ section {
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
 }
 
 .project-card:hover {
@@ -469,11 +471,17 @@ section {
 
 .project-content {
     padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .project-content h3 {
     margin-bottom: 4px;
     color: var(--text-dark);
+    font-size: 1.25rem;
+    line-height: 1.35;
+    min-height: 2.7em; /* reserve space for 2 lines so cards align regardless of title length */
 }
 
 .project-role {
@@ -516,6 +524,8 @@ section {
     align-items: center;
     gap: 5px;
     transition: var(--transition);
+    margin-top: auto;
+    align-self: flex-start;
 }
 
 .project-link:hover {
