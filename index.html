@@ -119,7 +119,7 @@
                     <div class="project-content">
                         <h3>Isla Verde Booking and Management System</h3>
                         <span class="project-role">Full-Stack Developer</span>
-                        <p>A resort booking platform where guests browse and reserve villas and dining experiences, with an admin dashboard for managing listings in real time.</p>
+                        <p>A resort booking and management platform for a private island getaway. Guests can browse and reserve villas or dining experiences, while admins manage listings — adding, updating, and removing villas and restaurants in real time.</p>
                         <div class="project-tags">
                             <span class="tag">TypeScript</span>
                             <span class="tag">Supabase</span>
@@ -135,7 +135,7 @@
                     <div class="project-content">
                         <h3>BBGlo Management System</h3>
                         <span class="project-role">Full-Stack Developer</span>
-                        <p>A business management system for a home-based retail distributor serving pharmacies and retailers across Mindanao, replacing manual inventory, order, and financial tracking with six integrated modules.</p>
+                        <p>A comprehensive management system for a home-based retail distributor serving pharmacies and retailers across Mindanao. Replaces inefficient manual inventory, order, and financial tracking with six integrated modules covering customers, sales, delivery, and finance.</p>
                         <div class="project-tags">
                             <span class="tag">JavaScript</span>
                             <span class="tag">Supabase</span>
@@ -151,7 +151,7 @@
                     <div class="project-content">
                         <h3>SOSit! IoT Based Accessory Panic Button</h3>
                         <span class="project-role">Full-Stack Developer</span>
-                        <p>An IoT panic-button accessory using an ESP32-S3 and Bluetooth Low Energy to trigger real-time emergency alerts, combining GPS tracking with Supabase and Firebase Cloud Messaging to instantly notify contacts and authorities.</p>
+                        <p>An IoT-enabled safety accessory using an ESP32-S3 and Bluetooth Low Energy for real-time emergency alerts, combining smartphone GPS tracking with Supabase and Firebase Cloud Messaging to notify emergency contacts and authorities instantly.</p>
                         <div class="project-tags">
                             <span class="tag">Dart</span>
                             <span class="tag">IoT</span>
@@ -167,7 +167,7 @@
                     <div class="project-content">
                         <h3>DanceIT</h3>
                         <span class="project-role">UI/UX Designer</span>
-                        <p>A UI/UX design for a mobile app where dancers can book classes and practice venues, and connect with other dancers.</p>
+                        <p>A UI/UX design for a mobile app that helps dancers discover and book dance classes and practice venues, connect with fellow dancers, and stay motivated through a shared community built around the craft of dance.</p>
                         <div class="project-tags">
                             <span class="tag">Figma</span>
                             <span class="tag">UI/UX</span>
@@ -182,7 +182,7 @@
                     <div class="project-content">
                         <h3>Univents</h3>
                         <span class="project-role">UI/UX Designer</span>
-                        <p>A mobile app UI/UX design for Ateneo de Davao University, letting students browse ongoing, upcoming, and completed campus events.</p>
+                        <p>A mobile app UI/UX design for Ateneo de Davao University, giving students one place to browse ongoing, upcoming, and completed campus events — so nothing about student life on campus gets missed.</p>
                         <div class="project-tags">
                             <span class="tag">Figma</span>
                             <span class="tag">UI/UX</span>
@@ -292,6 +292,23 @@
             <p>All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Project Details Modal -->
+    <div class="project-modal" id="projectModal" aria-hidden="true">
+        <div class="project-modal-backdrop"></div>
+        <div class="project-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
+            <button class="project-modal-close" type="button" aria-label="Close project details">&times;</button>
+            <img class="project-modal-image" src="" alt="">
+            <div class="project-modal-body">
+                <h3 id="projectModalTitle"></h3>
+                <span class="project-role" id="projectModalRole"></span>
+                <p id="projectModalDescription"></p>
+                <div class="project-tags" id="projectModalTags"></div>
+                <a class="project-link" id="projectModalLink" target="_blank" rel="noopener"></a>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

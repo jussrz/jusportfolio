@@ -135,4 +135,74 @@ skillItems.forEach((item, index) => {
     item.style.animationDelay = `${index * 0.1}s`;
 });
 
+// Project details modal
+const projectModal = document.getElementById('projectModal');
+let lastFocusedCard = null;
+
+if (projectModal) {
+    const modalImage = projectModal.querySelector('.project-modal-image');
+    const modalTitle = projectModal.querySelector('#projectModalTitle');
+    const modalRole = projectModal.querySelector('#projectModalRole');
+    const modalDescription = projectModal.querySelector('#projectModalDescription');
+    const modalTags = projectModal.querySelector('#projectModalTags');
+    const modalLink = projectModal.querySelector('#projectModalLink');
+    const modalClose = projectModal.querySelector('.project-modal-close');
+
+    const openProjectModal = (card) => {
+        const image = card.querySelector('.project-image img');
+        const link = card.querySelector('.project-link');
+
+        modalImage.src = image.src;
+        modalImage.alt = image.alt;
+        modalTitle.textContent = card.querySelector('h3').textContent;
+        modalRole.textContent = card.querySelector('.project-role').textContent;
+        modalDescription.textContent = card.querySelector('.project-content p').textContent;
+        modalTags.innerHTML = card.querySelector('.project-tags').innerHTML;
+        modalLink.href = link.href;
+        modalLink.innerHTML = link.innerHTML;
+
+        lastFocusedCard = card;
+        projectModal.classList.add('active');
+        projectModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        modalClose.focus();
+    };
+
+    const closeProjectModal = () => {
+        projectModal.classList.remove('active');
+        projectModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (lastFocusedCard) {
+            lastFocusedCard.focus();
+        }
+    };
+
+    projectCards.forEach(card => {
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-haspopup', 'dialog');
+
+        card.addEventListener('click', (e) => {
+            if (e.target.closest('.project-link')) return;
+            openProjectModal(card);
+        });
+
+        card.addEventListener('keydown', (e) => {
+            if (e.target !== card) return;
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openProjectModal(card);
+            }
+        });
+    });
+
+    modalClose.addEventListener('click', closeProjectModal);
+    projectModal.querySelector('.project-modal-backdrop').addEventListener('click', closeProjectModal);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && projectModal.classList.contains('active')) {
+            closeProjectModal();
+        }
+    });
+}
+
 console.log('Portfolio website loaded successfully! 🚀');

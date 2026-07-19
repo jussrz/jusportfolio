@@ -443,11 +443,17 @@ section {
     transition: var(--transition);
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 
 .project-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.project-card:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 4px;
 }
 
 /* fixed height for project images to maintain consistent card sizes; adjust as needed based on your screenshots */
@@ -497,6 +503,12 @@ section {
     color: var(--text-light);
     margin-bottom: 15px;
     line-height: 1.6;
+    min-height: 8em; /* reserve exactly 5 lines so descriptions align across cards */
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .project-tags {
@@ -530,6 +542,105 @@ section {
 
 .project-link:hover {
     gap: 10px;
+}
+
+/* Project Details Modal */
+.project-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.project-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.project-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.6);
+}
+
+.project-modal-dialog {
+    position: relative;
+    background: var(--white);
+    border-radius: 20px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.project-modal.active .project-modal-dialog {
+    transform: translateY(0);
+}
+
+.project-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text-dark);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.project-modal-close:hover {
+    background: var(--text-dark);
+    color: var(--white);
+}
+
+.project-modal-image {
+    width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+    display: block;
+}
+
+.project-modal-body {
+    padding: 30px;
+}
+
+.project-modal-body h3 {
+    color: var(--text-dark);
+    margin-bottom: 4px;
+    font-size: 1.5rem;
+}
+
+.project-modal-body .project-role {
+    margin-bottom: 15px;
+}
+
+.project-modal-body p {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.project-modal-body .project-tags {
+    margin-bottom: 20px;
 }
 
 /* Skills Section */
