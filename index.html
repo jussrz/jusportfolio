@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Joshua Sam Suarez | Fullstack Web & Software Developer</title>
+    <meta name="description" content="Portfolio of Joshua Sam Suarez, a fullstack web and mobile developer in Davao City building clean, user-focused applications with React, Flutter, and Django.">
+    <meta property="og:title" content="Joshua Sam Suarez | Fullstack Web & Software Developer">
+    <meta property="og:description" content="Portfolio of Joshua Sam Suarez, a fullstack web and mobile developer in Davao City building clean, user-focused applications with React, Flutter, and Django.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="profile.jpg">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -34,11 +40,11 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="hamburger">
+            <button class="hamburger" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
@@ -49,7 +55,7 @@
                 <img src="profile.jpg" alt="Profile Picture" class="hero-profile-pic">
                 <p class="hero-greeting">Hello, it's me Josh!</p>
                 <h1 class="hero-title">Fullstack Web Developer and Software Developer</h1>
-                <p class="hero-sub">A passionate developer and who loves to create clean and user-friendly applications and is constantly discovering new ways to create interesting digital experiences.</p>
+                <p class="hero-sub">A passionate developer who loves creating clean, user-friendly applications and is constantly discovering new ways to craft interesting digital experiences.</p>
 
                 <div class="hero-ctas">
                     <a href="#contact" class="btn btn-primary">Contact Me</a>
@@ -108,32 +114,34 @@
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="bbglo.png" alt="BBGlo Management System Preview">
-                    </div>
-                    <div class="project-content">
-                        <h3>BBGlo Management System</h3>
-                        <p></p>
-                        <div class="project-tags">
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">Supabase</span>
-                            <span class="tag">Python</span>
-                        </div>
-                        <a href="https://github.com/bayuh-ra/BBGlo-MS" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
                         <img src="islaverde.png" alt="Isla Verde Booking and Management System Preview">
                     </div>
                     <div class="project-content">
                         <h3>Isla Verde Booking and Management System</h3>
-                        <p></p>
+                        <span class="project-role">Full-Stack Developer</span>
+                        <p>A resort booking platform where guests browse and reserve villas and dining experiences, with an admin dashboard for managing listings in real time.</p>
                         <div class="project-tags">
                             <span class="tag">TypeScript</span>
                             <span class="tag">Supabase</span>
                             <span class="tag">React</span>
                         </div>
-                        <a href="https://github.com/jussrz/islaverde" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://github.com/jussrz/islaverde" class="project-link">View Code <i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="bbglo.png" alt="BBGlo Management System Preview">
+                    </div>
+                    <div class="project-content">
+                        <h3>BBGlo Management System</h3>
+                        <span class="project-role">Full-Stack Developer</span>
+                        <p>A business management system for a home-based retail distributor serving pharmacies and retailers across Mindanao, replacing manual inventory, order, and financial tracking with six integrated modules.</p>
+                        <div class="project-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Supabase</span>
+                            <span class="tag">Python</span>
+                        </div>
+                        <a href="https://github.com/bayuh-ra/BBGlo-MS" class="project-link">View Code <i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -142,13 +150,14 @@
                     </div>
                     <div class="project-content">
                         <h3>SOSit! IoT Based Accessory Panic Button</h3>
-                        <p></p>
+                        <span class="project-role">Full-Stack Developer</span>
+                        <p>An IoT panic-button accessory using an ESP32-S3 and Bluetooth Low Energy to trigger real-time emergency alerts, combining GPS tracking with Supabase and Firebase Cloud Messaging to instantly notify contacts and authorities.</p>
                         <div class="project-tags">
                             <span class="tag">Dart</span>
                             <span class="tag">IoT</span>
                             <span class="tag">Supabase/Firebase</span>
                         </div>
-                        <a href="https://github.com/jussrz/SOSit" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://github.com/jussrz/SOSit" class="project-link">View Code <i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -157,12 +166,13 @@
                     </div>
                     <div class="project-content">
                         <h3>DanceIT</h3>
-                        <p></p>
+                        <span class="project-role">UI/UX Designer</span>
+                        <p>A UI/UX design for a mobile app where dancers can book classes and practice venues, and connect with other dancers.</p>
                         <div class="project-tags">
                             <span class="tag">Figma</span>
                             <span class="tag">UI/UX</span>
                         </div>
-                        <a href="https://www.figma.com/proto/FKhIdr1JS4xhuPALayJgLP/Untitled?node-id=1-237&p=f&t=KmswrpqwpvAqofSO-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A237" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://www.figma.com/proto/FKhIdr1JS4xhuPALayJgLP/Untitled?node-id=1-237&p=f&t=KmswrpqwpvAqofSO-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A237" class="project-link">View Design <i class="fab fa-figma"></i></a>
                     </div>
                 </div>
                                 <div class="project-card">
@@ -171,12 +181,13 @@
                     </div>
                     <div class="project-content">
                         <h3>Univents</h3>
-                        <p></p>
+                        <span class="project-role">UI/UX Designer</span>
+                        <p>A mobile app UI/UX design for Ateneo de Davao University, letting students browse ongoing, upcoming, and completed campus events.</p>
                         <div class="project-tags">
                             <span class="tag">Figma</span>
                             <span class="tag">UI/UX</span>
                         </div>
-                        <a href="https://www.figma.com/proto/fQ0piReGnGJ8LyAOdd7qN4/UniVents?node-id=1-208&p=f&t=fLtSOWd5CkeBT5jo-1&scaling=scale-down&content-scaling=fixed&page-id=1%3A207" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://www.figma.com/proto/fQ0piReGnGJ8LyAOdd7qN4/UniVents?node-id=1-208&p=f&t=fLtSOWd5CkeBT5jo-1&scaling=scale-down&content-scaling=fixed&page-id=1%3A207" class="project-link">View Design <i class="fab fa-figma"></i></a>
                     </div>
                 </div>
             </div>

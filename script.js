@@ -3,10 +3,11 @@ const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 
 hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    
+    const isActive = navLinks.classList.toggle('active');
+
     // Animate hamburger icon
     hamburger.classList.toggle('active');
+    hamburger.setAttribute('aria-expanded', isActive);
 });
 
 // Close mobile menu when clicking on a link
@@ -105,41 +106,6 @@ if (heroTitle) {
         setTimeout(typeWriter, 500);
     });
 }
-
-// Animate stats numbers
-const animateStats = () => {
-    const stats = document.querySelectorAll('.icons h3');
-    stats.forEach(stat => {
-        const target = parseInt(stat.innerText);
-        const increment = target / 50;
-        let current = 0;
-        
-        const updateCount = () => {
-            if (current < target) {
-                current += increment;
-                stat.innerText = Math.ceil(current) + '+';
-                setTimeout(updateCount, 30);
-            } else {
-                stat.innerText = target + '+';
-            }
-        };
-        
-        // Trigger animation when stat is visible
-        const statObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    updateCount();
-                    statObserver.unobserve(entry.target);
-                }
-            });
-        });
-        
-        statObserver.observe(stat.parentElement);
-    });
-};
-
-// Initialize stats animation
-animateStats();
 
 // Add parallax effect to hero section
 window.addEventListener('scroll', () => {
