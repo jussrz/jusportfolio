@@ -68,21 +68,41 @@ document.querySelectorAll('section, .project-card, .skill-category, .icons').for
     observer.observe(el);
 });
 
-// Form Submission Handler
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+// Form Submission Handler (EmailJS)
+const contactForm = document.getElementById('contactForm');
+if (contactForm && typeof emailjs !== 'undefined') {
+    emailjs.init({ publicKey: 'RhtXicyZzLBIoYe7Z' });
+
+    const formStatus = contactForm.querySelector('.form-status');
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const submitButtonDefaultText = submitButton.textContent;
+
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
-        // Get form values
-        const formData = new FormData(contactForm);
-        
-        // Here you would typically send the form data to a server
-        // For now, we'll just show a success message
-        alert('Thank you for your message! I will get back to you soon.');
-        
-        // Reset form
-        contactForm.reset();
+
+        // Honeypot: real users never fill this hidden field, bots often do
+        if (contactForm.honeypot.checked) {
+            contactForm.reset();
+            return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+        formStatus.textContent = '';
+        formStatus.classList.remove('success', 'error');
+
+        try {
+            await emailjs.sendForm('service_xj3akqc', 'template_m3idplu', contactForm);
+            formStatus.textContent = "Thanks for reaching out! I'll get back to you soon.";
+            formStatus.classList.add('success');
+            contactForm.reset();
+        } catch (error) {
+            formStatus.textContent = 'Something went wrong sending your message. Please try emailing me directly.';
+            formStatus.classList.add('error');
+        } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = submitButtonDefaultText;
+        }
     });
 }
 
